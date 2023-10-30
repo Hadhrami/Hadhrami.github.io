@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>E-Business Models Game</title>
+    <title>E-Business Models Drag and Drop Game</title>
 </head>
 <body>
     <h1>E-Business Models Drag and Drop Game</h1>
+    <p>Drag and drop the e-business models to their correct category:</p>
     <div class="categories">
         <div id="ebusiness" class="category">
             <h2>E-Business Models</h2>
             <div class="item" draggable="true">E-commerce</div>
             <div class="item" draggable="true">Subscription Model</div>
             <div class="item" draggable="true">Marketplace</div>
-            <!-- Add more e-business model terms here -->
+            <div class="item" draggable="true">Advertising-based</div>
+            <div class="item" draggable="true">Freemium</div>
         </div>
         <div id="examples" class="category">
             <h2>Examples</h2>
-            <div class="item" draggable="true">Amazon</div>
-            <div class="item" draggable="true">Netflix</div>
-            <div class="item" draggable="true">eBay</div>
-            <!-- Add more examples here -->
+            <!-- Drop zones for examples -->
         </div>
     </div>
 
     <div id="result" class="category">
         <h2>Your Selections</h2>
+        <p id="feedback"></p>
     </div>
 
     <script src="script.js"></script>
