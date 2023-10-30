@@ -13,6 +13,7 @@ items.forEach(item => {
 
 const dropTargets = document.querySelectorAll('.drop-target');
 
+
 dropTargets.forEach(target => {
     target.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -21,10 +22,10 @@ dropTargets.forEach(target => {
     target.addEventListener('drop', (e) => {
         e.preventDefault();
         const data = e.dataTransfer.getData('text/plain');
-        target.style.color = 'black'; // Reset text color
+        target.classList.remove('correct-drop'); // Remove the class
 
         if (target.textContent === data) {
-            target.style.color = 'green'; // Change text color for correct answers
+            target.classList.add('correct-drop'); // Add the class for correct answers
             feedback.textContent = 'Correct!';
             correctAnswers++;
         } else {
