@@ -11,31 +11,26 @@ items.forEach(item => {
     });
 });
 
-categories.forEach(category => {
-    category.addEventListener('dragover', (e) => {
+const dropTargets = document.querySelectorAll('.drop-target');
+
+dropTargets.forEach(target => {
+    target.addEventListener('dragover', (e) => {
         e.preventDefault();
     });
 
-    category.addEventListener('drop', (e) => {
+    target.addEventListener('drop', (e) => {
         e.preventDefault();
         const data = e.dataTransfer.getData('text/plain');
-        const item = document.createElement('div');
-        item.className = 'item';
-        item.textContent = data;
-        category.appendChild(item);
+        target.style.color = 'black'; // Reset text color
 
-        // Check if the dropped item is in the correct category
-        if (category.id === 'ebusiness' && (data === 'E-commerce' || data === 'Alibaba' )) {
-            feedback.textContent = 'Correct!';
-            correctAnswers++;
-        } else if (category.id === 'examples' && (data === 'Advertising-based' || data === 'Freemium')) {
+        if (target.textContent === data) {
+            target.style.color = 'green'; // Change text color for correct answers
             feedback.textContent = 'Correct!';
             correctAnswers++;
         } else {
             feedback.textContent = 'Incorrect.';
         }
 
-        // Check if the game is complete
         if (correctAnswers === totalAnswers) {
             feedback.textContent = 'Congratulations! You completed the game!';
         }
