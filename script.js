@@ -1,5 +1,9 @@
 const items = document.querySelectorAll('.item');
 const categories = document.querySelectorAll('.category');
+const feedback = document.getElementById('feedback');
+
+let correctAnswers = 0;
+const totalAnswers = items.length;
 
 items.forEach(item => {
     item.addEventListener('dragstart', (e) => {
@@ -19,5 +23,21 @@ categories.forEach(category => {
         item.className = 'item';
         item.textContent = data;
         category.appendChild(item);
+
+        // Check if the dropped item is in the correct category
+        if (category.id === 'ebusiness' && (data === 'E-commerce' || data === 'Subscription Model' || data === 'Marketplace')) {
+            feedback.textContent = 'Correct!';
+            correctAnswers++;
+        } else if (category.id === 'examples' && (data === 'Advertising-based' || data === 'Freemium')) {
+            feedback.textContent = 'Correct!';
+            correctAnswers++;
+        } else {
+            feedback.textContent = 'Incorrect.';
+        }
+
+        // Check if the game is complete
+        if (correctAnswers === totalAnswers) {
+            feedback.textContent = 'Congratulations! You completed the game!';
+        }
     });
 });
