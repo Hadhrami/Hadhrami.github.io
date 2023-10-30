@@ -25,7 +25,7 @@ categories.forEach(category => {
         category.appendChild(item);
 
         // Check if the dropped item is in the correct category
-        if (category.id === 'ebusiness' && (data === 'E-commerce' || data === 'Subscription Model' || data === 'Marketplace')) {
+        if (category.id === 'ebusiness' && (data === 'E-commerce' || data === 'Alibaba' )) {
             feedback.textContent = 'Correct!';
             correctAnswers++;
         } else if (category.id === 'examples' && (data === 'Advertising-based' || data === 'Freemium')) {
